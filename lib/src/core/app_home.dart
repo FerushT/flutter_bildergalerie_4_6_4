@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/presentation/grid_card_screen.dart';
-import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/presentation/ueber_mich.dart';
+import 'package:flutter_bildergalerie_4_6_4/src/features/profile/domain/ueber_mich_screen.dart';
 
 class AppHome extends StatefulWidget {
   const AppHome({super.key});
