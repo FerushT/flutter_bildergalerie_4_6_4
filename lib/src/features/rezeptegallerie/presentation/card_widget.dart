@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bildergalerie_4_6_4/src/features/feature1/domain/rezept.dart';
+import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/domain/rezept.dart';
 
 class CardWidget extends StatelessWidget {
   final Rezept rezept;

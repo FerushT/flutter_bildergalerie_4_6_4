@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bildergalerie_4_6_4/src/features/feature1/data/rezepte_database.dart';
-import 'package:flutter_bildergalerie_4_6_4/src/features/feature1/presentation/card_detail_screen.dart';
-import 'package:flutter_bildergalerie_4_6_4/src/features/feature1/presentation/card_widget.dart';
+import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/data/rezepte_database.dart';
+import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/presentation/card_detail_screen.dart';
+import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/presentation/card_widget.dart';
 
 class GridCardScreen extends StatefulWidget {
   const GridCardScreen({super.key});

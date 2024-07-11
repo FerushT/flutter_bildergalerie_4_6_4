@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bildergalerie_4_6_4/src/features/feature1/domain/user_info.dart';
+import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/domain/user_info.dart';
 
 UserInfo ferhat = const UserInfo(
   userName: "Ferhat Tüzün",
