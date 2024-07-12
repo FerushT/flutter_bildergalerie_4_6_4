@@ -47,6 +47,10 @@ class Suesswaren extends Zutat {
   Suesswaren({required super.name, super.gewicht, super.stueckzahl});
 }
 
+class Buerger extends Zutat {
+  Buerger({required super.name, super.gewicht, super.stueckzahl});
+}
+
 //Unterkategorien....
 
 class Lachs extends Fisch {
