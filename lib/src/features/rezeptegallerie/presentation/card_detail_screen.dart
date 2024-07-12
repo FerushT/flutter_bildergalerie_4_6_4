@@ -14,32 +14,55 @@ class CardDetailScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.blue,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: 400, width: 400, child: rezept.bild),
-          const SizedBox(
-            height: 20,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 400,
+                  child: Image.asset(
+                    rezept.bild,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(rezept.title),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(rezept.description),
+                ),
+                const Divider(
+                  indent: 16,
+                  endIndent: 16,
+                  height: 40,
+                ),
+                ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: rezept.zutaten.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(
+                        rezept.zutaten[index].name,
+                      ),
+                      trailing: Text(rezept.zutaten[index].gewicht != null
+                          ? "${rezept.zutaten[index].gewicht.toString()} g"
+                          : "${rezept.zutaten[index].stueckzahl} Stück"),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
-          Text(rezept.description),
-          const Divider(
-            height: 40,
-          ),
-          Expanded(
-            child: ListView.builder(
-                itemCount: rezept.zutaten.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(
-                      rezept.zutaten[index].name,
-                    ),
-                    trailing: Text(rezept.zutaten[index].gewicht != null
-                        ? "${rezept.zutaten[index].gewicht.toString().replaceAll(".", ",")} Gramm"
-                        : "${rezept.zutaten[index].stueckzahl} Stück"),
-                  );
-                }),
-          ),
-        ],
+        ),
       ),
     );
   }
