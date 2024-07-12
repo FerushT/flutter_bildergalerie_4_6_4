@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/domain/rezept.dart';
+import 'package:flutter_bildergalerie_4_6_4/src/features/rezeptegallerie/presentation/card_detail_screen.dart';
 
 class CardWidget extends StatelessWidget {
   final Rezept rezept;
@@ -8,47 +9,39 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(8),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CardDetailScreen(rezept: rezept),
+          ),
+        );
+      },
       child: Card(
-        clipBehavior: Clip.hardEdge,
         child: Column(
           children: [
             Expanded(
-              child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+              child: SizedBox(
+                width: double.infinity,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(8),
                   ),
-                  child: rezept.bild),
-            ),
-            SizedBox(
-              height: 28,
-              child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  rezept.title,
+                  child: Image.asset(
+                    rezept.bild,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(rezept.title),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class ImageWidget extends StatelessWidget {
-  const ImageWidget({super.key, required this.path, required this.title});
-
-  final String path;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Image.asset(
-      path,
-      fit: BoxFit.cover,
     );
   }
 }
