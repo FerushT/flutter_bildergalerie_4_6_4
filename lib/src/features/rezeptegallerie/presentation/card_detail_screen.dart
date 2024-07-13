@@ -12,7 +12,7 @@ class CardDetailScreen extends StatelessWidget {
         title: Text(
           "Rezeptdetails: ${rezept.title}",
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromARGB(239, 131, 232, 98),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -20,6 +20,8 @@ class CardDetailScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment
+                  .stretch, //mit dieser funktion wollte ich bewirken, dass das Bild über das gesamte Feld gestreckt wird. Leider geht das nicht.
               children: [
                 SizedBox(
                   height: 400,
@@ -30,7 +32,13 @@ class CardDetailScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(rezept.title),
+                  child: Text(
+                    rezept.subtitle,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -45,20 +53,21 @@ class CardDetailScreen extends StatelessWidget {
                   height: 40,
                 ),
                 ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: rezept.zutaten.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(
-                        rezept.zutaten[index].name,
-                      ),
-                      trailing: Text(rezept.zutaten[index].gewicht != null
-                          ? "${rezept.zutaten[index].gewicht.toString()} g"
-                          : "${rezept.zutaten[index].stueckzahl} Stück"),
-                    );
-                  },
-                ),
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: rezept.zutaten.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(
+                          rezept.zutaten[index].name,
+                        ),
+                        trailing: Text(rezept.zutaten[index].gewicht != null
+                            ? "${rezept.zutaten[index].gewicht.toString()} g"
+                            : rezept.zutaten[index].stueckzahl != null
+                                ? "${rezept.zutaten[index].stueckzahl} Stück"
+                                : "${rezept.zutaten[index].liter.toString()} Liter"),
+                      );
+                    }),
               ],
             ),
           ),
