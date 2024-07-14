@@ -22,7 +22,7 @@ class _AppHomeState extends State<AppHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 211, 156, 5),
+        backgroundColor: const Color.fromARGB(148, 209, 178, 140),
         title: const Text("Meine Rezept Gallerie"),
       ),
       bottomNavigationBar: BottomNavigationBar(
