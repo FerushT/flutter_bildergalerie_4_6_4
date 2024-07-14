@@ -5,7 +5,7 @@ List<Rezept> alleRezepte = [
   Rezept(
     title: "Jan´s Lasagne",
     subtitle: "Italienische Spezialität",
-    description: "Zutaten",
+    description: "Zutaten:",
     zutaten: [
       Fleisch(name: "Gemischtes Hackfleisch", gewicht: 500),
       Nudeln(name: "Lasagneplatten", gewicht: 300),
