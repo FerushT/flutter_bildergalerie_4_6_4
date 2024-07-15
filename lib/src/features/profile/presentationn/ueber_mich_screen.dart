@@ -16,48 +16,51 @@ class UeberMich extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(148, 209, 178, 140),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                const Text(
-                  "Profil",
-                  style: TextStyle(fontSize: 32),
-                ),
-                const SizedBox(height: 32),
-                CircleAvatar(
-                  radius: 90,
-                  backgroundImage: AssetImage(ferhat.userImagePath),
-                  child: null,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  ferhat.userName,
-                  style: const TextStyle(fontSize: 24),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  ferhat.userJob,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Text(ferhat.userDate),
-                const SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  ferhat.userBio,
-                  textAlign: TextAlign.justify,
-                ),
-              ],
+      body: Scrollbar(
+        thumbVisibility: false,
+        child: Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  const Text(
+                    "Profil",
+                    style: TextStyle(fontSize: 32),
+                  ),
+                  const SizedBox(height: 32),
+                  CircleAvatar(
+                    radius: 90,
+                    backgroundImage: AssetImage(ferhat.userImagePath),
+                    child: null,
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    ferhat.userName,
+                    style: const TextStyle(fontSize: 24),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    ferhat.userJob,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Text(ferhat.userDate),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    ferhat.userBio,
+                    textAlign: TextAlign.justify,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
